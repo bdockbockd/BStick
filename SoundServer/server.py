@@ -1,6 +1,5 @@
 from scipy.io import wavfile
 from flask import Flask, request
-import os
 import pyaudio  
 import wave
 
@@ -8,6 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def play():
+
+
     #get key
     key = int(request.args.get('key'))
     print('Playing key {}'.format(key))
@@ -18,10 +19,10 @@ def play():
     #list keep directory
     directory = [];
     for i in range(0,18):
-        directory.append("translate_tts (" + i + ")")
+        directory.append("translate_tts (" + str(i) + ")")
 
     #open a wav format music
-    f = wave.open(r"" + os.getcwd() + "\\" + directory[key] + ".wav" ,"rb")
+    f = wave.open(r"" + directory[key] + ".wav" ,"rb")
     #instantiate PyAudio  
     p = pyaudio.PyAudio()  
     #open stream  

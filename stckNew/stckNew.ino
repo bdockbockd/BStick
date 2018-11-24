@@ -24,6 +24,7 @@
 #define USE_SERIAL Serial
 
 ESP8266WiFiMulti WiFiMulti;
+String ret;
 String key1;
 String key2;
 int indexPosition;
@@ -31,32 +32,58 @@ String type[] = {"1","2","3","4"};
 
 String getKey(long distance, String text ){
 //    Serial.println(text+": " + distance + "cm");
-    if(distance <= 100 && distance > 50) {
+    if(distance <= 150 && distance > 100) {
        HTTPClient http;
+       if(text == "LEFT" ) {
+          ret = "0";
+        } else {
+          ret = "3";
+        }
 //       USE_SERIAL.print("[HTTP] begin...\n");
-        http.begin("http://172.20.10.6:5000/?key=0"); //HTTP
+        http.begin("http://172.20.10.6:5000/?key="+ ret); //HTTP
 //        Firebase.set("key0" ,true);
         http.GET();
         http.end();
-        Serial.println("1 meters coming from " + text);
-
-        return "0";
-    } else if(distance <= 50 && distance >= 25){
+        Serial.println("1.5 meters coming from " + text);
+        if(text == "LEFT" ) {
+          return "0";
+        } else {
+          return "3";
+        }
+    } else if(distance >= 50 && distance < 100){
        HTTPClient http;
-        http.begin("http://172.20.10.6:5000/?key=1"); //HTTP
+        if(text == "LEFT" ) {
+          ret = "6";
+        } else {
+          ret = "9";
+        }
+        http.begin("http://172.20.10.6:5000/?key="+ret); //HTTP
 //        Firebase.set("key1" ,true);
         http.GET();
         http.end();
-      Serial.println("0.5 meters coming from " + text);
-      return  "1";
-    } else if(distance < 25){
+      Serial.println("1 meters coming from " + text);
+      if(text == "LEFT" ) {
+          return "6";
+        } else {
+          return "9";
+        }
+    } else if(distance < 50){
         HTTPClient http;
-        http.begin("http://172.20.10.6:5000/?key=2"); //HTTP
+        if(text == "LEFT" ) {
+          ret=  "12";
+        } else {
+          ret = "15";
+        }
+        http.begin("http://172.20.10.6:5000/?key="+ret); //HTTP
 //        Firebase.set("key2" ,true);
         http.GET();
         http.end();
         Serial.println("Meet the wall from the " + text);
-        return "2";
+         if(text == "LEFT" ) {
+          return "12";
+        } else {
+          return "15";
+        }
     }
     return "";
 }
@@ -106,6 +133,7 @@ void loop() {
     digitalWrite(TRIGGER_PIN_L, LOW);
     duration_L = pulseIn(ECHO_PIN_L, HIGH);
     distance_L = (duration_L/2) / 29.1;
+    Serial.println("LEFT:" + String(distance_L));
 
     long duration_R, distance_R;
     digitalWrite(TRIGGER_PIN_R, LOW);  // Added this line
@@ -115,6 +143,8 @@ void loop() {
     digitalWrite(TRIGGER_PIN_R, LOW);
     duration_R = pulseIn(ECHO_PIN_R, HIGH);
     distance_R = (duration_R/2) / 29.1;
+    Serial.println("RIGHT :" +String(distance_R));
+
 
     key1 = getKey(distance_L, "LEFT");
     key2 = getKey(distance_R, "RIGHT");
