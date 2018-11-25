@@ -67,7 +67,7 @@ String getKey(long distance, String text ){
           ret = "3";
         }
         http.begin("http://172.20.10.3:5000/?key="+ ret); //HTTP
-        Firebase.set("key/key"+ret ,true);
+        Firebase.set("key/key""+/times",1);
         http.GET();
         http.end();
         Serial.println("1.5 meters coming from " + text);
@@ -83,7 +83,7 @@ String getKey(long distance, String text ){
           ret = "9";
         }
         http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
-        Firebase.set("key/key"+ret ,true);
+        Firebase.set("key/key"+"/times",1);
         http.GET();
         http.end();
       Serial.println("1 meters coming from " + text);
@@ -99,7 +99,7 @@ String getKey(long distance, String text ){
           ret = "15";
         }
         http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
-        Firebase.set("key/key"+ret,true);
+        Firebase.set("key/key"+ret+"/times",1);
         http.GET();
         http.end();
         Serial.println("Meet the wall from the " + text);
@@ -113,7 +113,7 @@ String getKey(long distance, String text ){
 } 
 void setData(){
   for(int i =0 ;i<=15;i+=3)
-    Firebase.set("key/key"+String(i) ,false);
+    Firebase.set("key/key"+String(i)+"/times",0);
 }
 
 void loop() {
