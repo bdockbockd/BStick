@@ -1,9 +1,9 @@
-//#include <FirebaseCloudMessaging.h>
-//#include <Firebase.h>
-//#include <FirebaseHttpClient.h>
-//#include <FirebaseArduino.h>
-//#include <FirebaseError.h>
-//#include <FirebaseObject.h>
+#include <FirebaseCloudMessaging.h>
+#include <Firebase.h>
+#include <FirebaseHttpClient.h>
+#include <FirebaseArduino.h>
+#include <FirebaseError.h>
+#include <FirebaseObject.h>
 
 #define TRIGGER_PIN_L  16
 #define ECHO_PIN_L     5
@@ -27,66 +27,8 @@ ESP8266WiFiMulti WiFiMulti;
 String ret;
 String key1;
 String key2;
-int indexPosition;
-String type[] = {"1","2","3","4"};
+int times;
 
-String getKey(long distance, String text ){
-//    Serial.println(text+": " + distance + "cm");
-    if(distance <= 150 && distance > 100) {
-       HTTPClient http;
-       if(text == "LEFT" ) {
-          ret = "0";
-        } else {
-          ret = "3";
-        }
-//       USE_SERIAL.print("[HTTP] begin...\n");
-        http.begin("http://172.20.10.6:5000/?key="+ ret); //HTTP
-//        Firebase.set("key0" ,true);
-        http.GET();
-        http.end();
-        Serial.println("1.5 meters coming from " + text);
-        if(text == "LEFT" ) {
-          return "0";
-        } else {
-          return "3";
-        }
-    } else if(distance >= 50 && distance < 100){
-       HTTPClient http;
-        if(text == "LEFT" ) {
-          ret = "6";
-        } else {
-          ret = "9";
-        }
-        http.begin("http://172.20.10.6:5000/?key="+ret); //HTTP
-//        Firebase.set("key1" ,true);
-        http.GET();
-        http.end();
-      Serial.println("1 meters coming from " + text);
-      if(text == "LEFT" ) {
-          return "6";
-        } else {
-          return "9";
-        }
-    } else if(distance < 50){
-        HTTPClient http;
-        if(text == "LEFT" ) {
-          ret=  "12";
-        } else {
-          ret = "15";
-        }
-        http.begin("http://172.20.10.6:5000/?key="+ret); //HTTP
-//        Firebase.set("key2" ,true);
-        http.GET();
-        http.end();
-        Serial.println("Meet the wall from the " + text);
-         if(text == "LEFT" ) {
-          return "12";
-        } else {
-          return "15";
-        }
-    }
-    return "";
-}
 void setup() {
 
   USE_SERIAL.begin(115200);
@@ -106,16 +48,79 @@ void setup() {
 //
   WiFi.mode(WIFI_STA);
   WiFiMulti.addAP("Bkn", "plmlplml");
+  while (true) {
+    if((WiFiMulti.run() == WL_CONNECTED)){
+      Firebase.begin(FIREBASE_HOST, FIREBASE_KEY);
+      break;
+    }
+  }
 
+}
+String getKey(long distance, String text ){
+//    Serial.println(text+": " + distance + "cm");
+    HTTPClient http;
 
+    if(distance <= 150 && distance > 100) {
+       if(text == "LEFT" ) {
+          ret = "0";
+        } else {
+          ret = "3";
+        }
+        http.begin("http://172.20.10.3:5000/?key="+ ret); //HTTP
+        Firebase.set("key/key"+ret ,true);
+        http.GET();
+        http.end();
+        Serial.println("1.5 meters coming from " + text);
+        if(text == "LEFT" ) {
+          return "0";
+        } else {
+          return "3";
+        }
+    } else if(distance >= 50 && distance < 100){
+        if(text == "LEFT" ) {
+          ret = "6";
+        } else {
+          ret = "9";
+        }
+        http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
+        Firebase.set("key/key"+ret ,true);
+        http.GET();
+        http.end();
+      Serial.println("1 meters coming from " + text);
+      if(text == "LEFT" ) {
+          return "6";
+        } else {
+          return "9";
+        }
+    } else if(distance < 50){
+        if(text == "LEFT" ) {
+          ret=  "12";
+        } else {
+          ret = "15";
+        }
+        http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
+        Firebase.set("key/key"+ret,true);
+        http.GET();
+        http.end();
+        Serial.println("Meet the wall from the " + text);
+         if(text == "LEFT" ) {
+          return "12";
+        } else {
+          return "15";
+        }
+    }
+    return "";
 } 
+void setData(){
+  for(int i =0 ;i<=15;i+=3)
+    Firebase.set("key/key"+String(i) ,false);
+}
 
 void loop() {
   // wait for WiFi connection
-
-  if ((WiFiMulti.run() == WL_CONNECTED)) {
-//    Firebase.begin(FIREBASE_HOST, FIREBASE_KEY);
-
+  
+    
+    setData();
     if(digitalRead(TOUCH_PIN) == HIGH){
       HTTPClient http;
       http.begin("http://maker.ifttt.com/trigger/SOS/with/key/pKyqgMHMZVjAuKOt4Wa-i"); //HTTP
@@ -148,8 +153,6 @@ void loop() {
 
     key1 = getKey(distance_L, "LEFT");
     key2 = getKey(distance_R, "RIGHT");
-    
+    delay(500);
   
-  
-  }
 }
