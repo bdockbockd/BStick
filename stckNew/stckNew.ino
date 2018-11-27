@@ -48,17 +48,13 @@ void setup() {
 //
   WiFi.mode(WIFI_STA);
   WiFiMulti.addAP("Bkn", "plmlplml");
-  while (true) {
-    if((WiFiMulti.run() == WL_CONNECTED)){
-      Firebase.begin(FIREBASE_HOST, FIREBASE_KEY);
-      break;
-    }
-  }
 
+ 
 }
+
 String getKey(long distance, String text ){
 //    Serial.println(text+": " + distance + "cm");
-    HTTPClient http;
+//    HTTPClient http;
 
     if(distance <= 150 && distance > 100) {
        if(text == "LEFT" ) {
@@ -66,11 +62,13 @@ String getKey(long distance, String text ){
         } else {
           ret = "3";
         }
-        http.begin("http://172.20.10.3:5000/?key="+ ret); //HTTP
-        Firebase.set("key/key""+/times",1);
-        http.GET();
-        http.end();
-        Serial.println("1.5 meters coming from " + text);
+        Firebase.set("key/key"+ret+"/times",1);
+
+//      http.begin("http://172.20.10.3:5000/?key="+ ret); //HTTP
+//        http.GET();
+//        http.end();
+        
+//        Serial.println("1.5 meters coming from " + text);
         if(text == "LEFT" ) {
           return "0";
         } else {
@@ -82,11 +80,11 @@ String getKey(long distance, String text ){
         } else {
           ret = "9";
         }
-        http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
-        Firebase.set("key/key"+"/times",1);
-        http.GET();
-        http.end();
-      Serial.println("1 meters coming from " + text);
+        Firebase.set("key/key"+ret+"/times",1);
+//        http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
+//        http.GET();
+//        http.end();
+//      Serial.println("1 meters coming from " + text);
       if(text == "LEFT" ) {
           return "6";
         } else {
@@ -98,11 +96,12 @@ String getKey(long distance, String text ){
         } else {
           ret = "15";
         }
-        http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
         Firebase.set("key/key"+ret+"/times",1);
-        http.GET();
-        http.end();
-        Serial.println("Meet the wall from the " + text);
+
+//        http.begin("http://172.20.10.3:5000/?key="+ret); //HTTP
+//        http.GET();
+//        http.end();
+//        Serial.println("Meet the wall from the " + text);
          if(text == "LEFT" ) {
           return "12";
         } else {
@@ -114,18 +113,23 @@ String getKey(long distance, String text ){
 void setData(){
   for(int i =0 ;i<=15;i+=3)
     Firebase.set("key/key"+String(i)+"/times",0);
+  Firebase.set("SOS/data",0);
+  
 }
 
 void loop() {
   // wait for WiFi connection
   
-    
+  if((WiFiMulti.run() == WL_CONNECTED)){
+    Firebase.begin(FIREBASE_HOST, FIREBASE_KEY);
+
     setData();
     if(digitalRead(TOUCH_PIN) == HIGH){
       HTTPClient http;
       http.begin("http://maker.ifttt.com/trigger/SOS/with/key/pKyqgMHMZVjAuKOt4Wa-i"); //HTTP
       http.GET();
       http.end();
+      Firebase.set("SOS/data",1);
       Serial.println("Send SOS");
     }
     key1 = "";
@@ -139,6 +143,7 @@ void loop() {
     duration_L = pulseIn(ECHO_PIN_L, HIGH);
     distance_L = (duration_L/2) / 29.1;
     Serial.println("LEFT:" + String(distance_L));
+    Firebase.set("distance/distanceL",distance_L);
 
     long duration_R, distance_R;
     digitalWrite(TRIGGER_PIN_R, LOW);  // Added this line
@@ -149,10 +154,10 @@ void loop() {
     duration_R = pulseIn(ECHO_PIN_R, HIGH);
     distance_R = (duration_R/2) / 29.1;
     Serial.println("RIGHT :" +String(distance_R));
-
+    Firebase.set("distance/distanceR",distance_R);
 
     key1 = getKey(distance_L, "LEFT");
     key2 = getKey(distance_R, "RIGHT");
     delay(500);
-  
+  }
 }
