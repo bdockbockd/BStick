@@ -47,10 +47,11 @@ void setup() {
   }
 //
   WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP("BB", "032210570");
+  WiFiMulti.addAP("Bkn", "plmlplml");
 
  
 }
+
 String getKey(long distance, String text ){
 //    Serial.println(text+": " + distance + "cm");
 //    HTTPClient http;
@@ -112,6 +113,8 @@ String getKey(long distance, String text ){
 void setData(){
   for(int i =0 ;i<=15;i+=3)
     Firebase.set("key/key"+String(i)+"/times",0);
+  Firebase.set("SOS/data",0);
+  
 }
 
 void loop() {
@@ -126,6 +129,7 @@ void loop() {
       http.begin("http://maker.ifttt.com/trigger/SOS/with/key/pKyqgMHMZVjAuKOt4Wa-i"); //HTTP
       http.GET();
       http.end();
+      Firebase.set("SOS/data",1);
       Serial.println("Send SOS");
     }
     key1 = "";
@@ -152,10 +156,8 @@ void loop() {
     Serial.println("RIGHT :" +String(distance_R));
     Firebase.set("distance/distanceR",distance_R);
 
-
-
     key1 = getKey(distance_L, "LEFT");
     key2 = getKey(distance_R, "RIGHT");
-    delay(1000);
+    delay(500);
   }
 }
