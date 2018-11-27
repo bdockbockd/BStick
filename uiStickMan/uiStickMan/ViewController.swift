@@ -128,6 +128,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         self.statusLabel.backgroundColor = UIColor.black
         self.statusLabel.textColor = UIColor.white
         self.player?.stop()
+        ref.child("SOS/data").setValue(0)
     }
     
     func observeData() {
