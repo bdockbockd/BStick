@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BA7E8D337364DC936F13CB8C /* Pods_uiStickMan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DEABD2C32653044F1FB09A /* Pods_uiStickMan.framework */; };
+		BC1D125521AD99EC000D84BD /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1D125421AD99EC000D84BD /* Round.swift */; };
+		BC1D125721ADA0A4000D84BD /* numberThe in Resources */ = {isa = PBXBuildFile; fileRef = BC1D125621ADA0A4000D84BD /* numberThe */; };
+		BC1D125921ADA0AF000D84BD /* Screen Shot 2561-11-27 at 22.54.33.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1D125821ADA0AF000D84BD /* Screen Shot 2561-11-27 at 22.54.33.png */; };
 		BCA5D65F21AA7C6F00BE9A68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA5D65E21AA7C6F00BE9A68 /* GoogleService-Info.plist */; };
 		BCA5D66221AAEA5F00BE9A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA5D66121AAEA5F00BE9A68 /* Assets.xcassets */; };
 		BCA5D66421AAECC300BE9A68 /* translate_tts (0).wav in Resources */ = {isa = PBXBuildFile; fileRef = BCA5D66321AAECC300BE9A68 /* translate_tts (0).wav */; };
@@ -28,6 +31,10 @@
 		BCA5D68421AAFBCB00BE9A68 /* translate_tts (3).wav in Resources */ = {isa = PBXBuildFile; fileRef = BCA5D67321AAFBCA00BE9A68 /* translate_tts (3).wav */; };
 		BCA5D68521AAFBCB00BE9A68 /* translate_tts (10).wav in Resources */ = {isa = PBXBuildFile; fileRef = BCA5D67421AAFBCB00BE9A68 /* translate_tts (10).wav */; };
 		BCA5D68621AAFBCB00BE9A68 /* translate_tts (2).wav in Resources */ = {isa = PBXBuildFile; fileRef = BCA5D67521AAFBCB00BE9A68 /* translate_tts (2).wav */; };
+		BCCAE04B21AC8DA1003C166F /* front.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCCAE04A21AC8DA1003C166F /* front.mp3 */; };
+		BCCAE04F21AC8EC3003C166F /* sos.wav in Resources */ = {isa = PBXBuildFile; fileRef = BCCAE04C21AC8EC3003C166F /* sos.wav */; };
+		BCCAE05021AC8EC3003C166F /* Pulse.wav in Resources */ = {isa = PBXBuildFile; fileRef = BCCAE04D21AC8EC3003C166F /* Pulse.wav */; };
+		BCCAE05121AC8EC3003C166F /* AlarmAir.wav in Resources */ = {isa = PBXBuildFile; fileRef = BCCAE04E21AC8EC3003C166F /* AlarmAir.wav */; };
 		BCE2A28421A80ECA00D60875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2A28321A80ECA00D60875 /* AppDelegate.swift */; };
 		BCE2A28621A80ECA00D60875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2A28521A80ECA00D60875 /* ViewController.swift */; };
 		BCE2A28921A80ECA00D60875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE2A28721A80ECA00D60875 /* Main.storyboard */; };
@@ -38,6 +45,9 @@
 		56F955BE6D9BB20F31BB5F7E /* Pods-uiStickMan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uiStickMan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uiStickMan/Pods-uiStickMan.debug.xcconfig"; sourceTree = "<group>"; };
 		79DEABD2C32653044F1FB09A /* Pods_uiStickMan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uiStickMan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B106206CA8968B126BDEE263 /* Pods-uiStickMan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uiStickMan.release.xcconfig"; path = "Pods/Target Support Files/Pods-uiStickMan/Pods-uiStickMan.release.xcconfig"; sourceTree = "<group>"; };
+		BC1D125421AD99EC000D84BD /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		BC1D125621ADA0A4000D84BD /* numberThe */ = {isa = PBXFileReference; lastKnownFileType = folder; path = numberThe; sourceTree = "<group>"; };
+		BC1D125821ADA0AF000D84BD /* Screen Shot 2561-11-27 at 22.54.33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2561-11-27 at 22.54.33.png"; sourceTree = "<group>"; };
 		BCA5D65E21AA7C6F00BE9A68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCA5D66121AAEA5F00BE9A68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCA5D66321AAECC300BE9A68 /* translate_tts (0).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "translate_tts (0).wav"; path = "Assets.xcassets/translate_tts (0).wav"; sourceTree = "<group>"; };
@@ -58,6 +68,10 @@
 		BCA5D67321AAFBCA00BE9A68 /* translate_tts (3).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "translate_tts (3).wav"; path = "Assets.xcassets/translate_tts (3).wav"; sourceTree = "<group>"; };
 		BCA5D67421AAFBCB00BE9A68 /* translate_tts (10).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "translate_tts (10).wav"; path = "Assets.xcassets/translate_tts (10).wav"; sourceTree = "<group>"; };
 		BCA5D67521AAFBCB00BE9A68 /* translate_tts (2).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "translate_tts (2).wav"; path = "Assets.xcassets/translate_tts (2).wav"; sourceTree = "<group>"; };
+		BCCAE04A21AC8DA1003C166F /* front.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = front.mp3; sourceTree = "<group>"; };
+		BCCAE04C21AC8EC3003C166F /* sos.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sos.wav; sourceTree = SOURCE_ROOT; };
+		BCCAE04D21AC8EC3003C166F /* Pulse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Pulse.wav; sourceTree = SOURCE_ROOT; };
+		BCCAE04E21AC8EC3003C166F /* AlarmAir.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AlarmAir.wav; sourceTree = SOURCE_ROOT; };
 		BCE2A28021A80ECA00D60875 /* uiStickMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uiStickMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE2A28321A80ECA00D60875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCE2A28521A80ECA00D60875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +130,10 @@
 		BCE2A28221A80ECA00D60875 /* uiStickMan */ = {
 			isa = PBXGroup;
 			children = (
+				BC1D125621ADA0A4000D84BD /* numberThe */,
+				BCCAE04E21AC8EC3003C166F /* AlarmAir.wav */,
+				BCCAE04D21AC8EC3003C166F /* Pulse.wav */,
+				BCCAE04C21AC8EC3003C166F /* sos.wav */,
 				BCA5D66721AAFBCA00BE9A68 /* translate_tts (1).wav */,
 				BCA5D67521AAFBCB00BE9A68 /* translate_tts (2).wav */,
 				BCA5D67321AAFBCA00BE9A68 /* translate_tts (3).wav */,
@@ -123,6 +141,7 @@
 				BCA5D66821AAFBCA00BE9A68 /* translate_tts (5).wav */,
 				BCA5D67221AAFBCA00BE9A68 /* translate_tts (6).wav */,
 				BCA5D67021AAFBCA00BE9A68 /* translate_tts (7).wav */,
+				BCCAE04A21AC8DA1003C166F /* front.mp3 */,
 				BCA5D66C21AAFBCA00BE9A68 /* translate_tts (8).wav */,
 				BCA5D66E21AAFBCA00BE9A68 /* translate_tts (9).wav */,
 				BCA5D67421AAFBCB00BE9A68 /* translate_tts (10).wav */,
@@ -135,12 +154,14 @@
 				BCA5D66621AAFBCA00BE9A68 /* translate_tts (17).wav */,
 				BCA5D66321AAECC300BE9A68 /* translate_tts (0).wav */,
 				BCA5D66121AAEA5F00BE9A68 /* Assets.xcassets */,
+				BC1D125821ADA0AF000D84BD /* Screen Shot 2561-11-27 at 22.54.33.png */,
 				BCE2A28321A80ECA00D60875 /* AppDelegate.swift */,
 				BCE2A28521A80ECA00D60875 /* ViewController.swift */,
 				BCE2A28721A80ECA00D60875 /* Main.storyboard */,
 				BCE2A28C21A80ECD00D60875 /* LaunchScreen.storyboard */,
 				BCE2A28F21A80ECD00D60875 /* Info.plist */,
 				BCA5D65E21AA7C6F00BE9A68 /* GoogleService-Info.plist */,
+				BC1D125421AD99EC000D84BD /* Round.swift */,
 			);
 			path = uiStickMan;
 			sourceTree = "<group>";
@@ -205,8 +226,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCCAE04F21AC8EC3003C166F /* sos.wav in Resources */,
 				BCA5D68021AAFBCB00BE9A68 /* translate_tts (14).wav in Resources */,
 				BCA5D68421AAFBCB00BE9A68 /* translate_tts (3).wav in Resources */,
+				BCCAE05121AC8EC3003C166F /* AlarmAir.wav in Resources */,
 				BCE2A28E21A80ECD00D60875 /* LaunchScreen.storyboard in Resources */,
 				BCA5D66421AAECC300BE9A68 /* translate_tts (0).wav in Resources */,
 				BCA5D67E21AAFBCB00BE9A68 /* translate_tts (12).wav in Resources */,
@@ -221,12 +244,16 @@
 				BCE2A28921A80ECA00D60875 /* Main.storyboard in Resources */,
 				BCA5D68121AAFBCB00BE9A68 /* translate_tts (7).wav in Resources */,
 				BCA5D67621AAFBCB00BE9A68 /* translate_tts (13).wav in Resources */,
+				BC1D125721ADA0A4000D84BD /* numberThe in Resources */,
 				BCA5D67F21AAFBCB00BE9A68 /* translate_tts (9).wav in Resources */,
 				BCA5D68221AAFBCB00BE9A68 /* translate_tts (4).wav in Resources */,
 				BCA5D67D21AAFBCB00BE9A68 /* translate_tts (8).wav in Resources */,
+				BCCAE05021AC8EC3003C166F /* Pulse.wav in Resources */,
 				BCA5D67C21AAFBCB00BE9A68 /* translate_tts (16).wav in Resources */,
 				BCA5D68621AAFBCB00BE9A68 /* translate_tts (2).wav in Resources */,
 				BCA5D67B21AAFBCB00BE9A68 /* translate_tts (11).wav in Resources */,
+				BC1D125921ADA0AF000D84BD /* Screen Shot 2561-11-27 at 22.54.33.png in Resources */,
+				BCCAE04B21AC8DA1003C166F /* front.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE2A28621A80ECA00D60875 /* ViewController.swift in Sources */,
+				BC1D125521AD99EC000D84BD /* Round.swift in Sources */,
 				BCE2A28421A80ECA00D60875 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

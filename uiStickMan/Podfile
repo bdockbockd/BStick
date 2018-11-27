@@ -8,4 +8,6 @@ target 'uiStickMan' do
   # Pods for uiStickMan
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+
+
 end
